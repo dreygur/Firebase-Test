@@ -45,18 +45,32 @@ def sign_up(n):
     print(user.format(n, email, password))
     return user.format(n, email, password)
 
-def main(count):
+def test():
+    storage = firebase.storage()
+    storage.child("photos/Manali Taracemp4").put("/mnt/Extra/.mp4")
+
+def main(option):
     """ The main Function """
-    n = 1
-    with open('credentials.txt', "w") as f:
-        while count > 0:
-            try:
-                f.write(sign_up(n))
-                count -= 1
-                n += 1
-            except:
-                break
+    if option == 'b':
+        count = int(input("Enter Targeted Number: "))
+        n = 1
+        file = "credentials_" + rnd_gen(6) + ".txt"
+        with open(file, "w") as f:
+            while count > 0:
+                try:
+                    f.write(sign_up(n))
+                    count -= 1
+                    n += 1
+                except:
+                    break
+        
+        gitignore = open(".gitignore", "a")
+        gitignore.write(file + "\n")
+        gitignore.close()
+
+    elif option == "c":
+        test()
 
 if __name__ == "__main__":
-    count = int(input("Enter Targeted Number: "))
-    main(count)
+    option = str(input("Enter Option: "))
+    main(option)

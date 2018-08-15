@@ -41,10 +41,10 @@ def sign_up(n):
 def main(count):
     """ The main Function """
     n = 1
-    with open('credentials.txt', "r+") as f:
+    with open('credentials.txt', "w") as f:
         while count > 0:
             try:
-                f.append(sign_up(n))
+                f.write(sign_up(n))
                 count -= 1
                 n += 1
             except:

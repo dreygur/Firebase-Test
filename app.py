@@ -11,11 +11,13 @@ import string
 
 # Firebase Configurations
 config = {
-    "apiKey"        :   "apiKey",
-    "authDomain"    :   "projectId.firebaseapp.com",
-    "databaseURL"   :   "https://databaseName.firebaseio.com",
-    "storageBucket" :   "projectId.appspot.com"
+    "apiKey"        :   "AIzaSyCRJyJU8cXuApBmX9kFmrLCYnzJF3ztK64",
+    "authDomain"    :   "transport-tracker-56d6b.firebaseapp.com",
+    "databaseURL"   :   "https://transport-tracker-56d6b.firebaseio.com",
+    "storageBucket" :   "transport-tracker-56d6b.appspot.com"
 }
+apiKey      = "AIzaSyCRJyJU8cXuApBmX9kFmrLCYnzJF3ztK64" # Your API key
+projectID   = "transport-tracker-56d6b"                 # Your Project ID
 
 # You know what it does :D
 firebase = pyrebase.initialize_app(config)

@@ -43,11 +43,10 @@ def main(count):
     n = 1
     while count > 0:
         try:
-            sign_up()
+            sign_up(n)
             count -= 1
         except:
             break
-            sys.exit(0)
 
 if __name__ == "__main__":
     count = int(input("Enter Targeted Number: "))

@@ -1,5 +1,12 @@
 #!usr/bin/env python3
 
+"""
+Copyleft
+Author: Rakibul Yeasin Totul (fb.com/rytotul)
+For Fun Purpose don't take seriously...
+"""
+
+
 # Preventing from writing Bytecodes
 import sys
 sys.dont_write_bytecode = True

@@ -1,3 +1,4 @@
+pyrebase
 sseclient
 oauth2client
 gcloud

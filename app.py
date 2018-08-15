@@ -39,13 +39,13 @@ def sign_up():
 def main(count):
     """ The main Function """
     while count > 0:
-        try:
-            print("Working")
-            sign_up()
-            count -= 1
-        except:
+        #try:
+        print("Working")
+        sign_up()
+        count -= 1
+        """except:
             break
-            sys.exit(0)
+            sys.exit(0)"""
 
 if __name__ == "__main__":
     count = int(input("Enter Targeted Number: "))

@@ -34,7 +34,7 @@ def sign_up():
     n = 1
     email = rnd_gen(6)
     password = rnd_gen(8)
-    auth.create_user_with_email_and_password(email, password)
+    auth.create_user_with_email_and_password(email + "@playlagom.com", password)
     user = "[{0}]\tUsername: {1}\n\tPassword: {2}\n"
     print(user.format(n, email, password))
 

@@ -31,9 +31,9 @@ def rnd_gen(i):
 
 def sign_up(n):
     """ Generating Random Users """
-    email = rnd_gen(6)
+    email = rnd_gen(6)  + "@playlagom.com"
     password = rnd_gen(8)
-    auth.create_user_with_email_and_password(email + "@playlagom.com", password)
+    auth.create_user_with_email_and_password(email, password)
     user = "[{0}]\tUsername: {1}\n\tPassword: {2}\n"
     print(user.format(n, email, password))
     n += 1

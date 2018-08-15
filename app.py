@@ -40,6 +40,7 @@ def main(count):
     """ The main Function """
     while count > 0:
         try:
+            print("Working")
             sign_up()
             count -= 1
         except:

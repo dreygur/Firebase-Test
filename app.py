@@ -36,7 +36,6 @@ def sign_up(n):
     auth.create_user_with_email_and_password(email, password)
     user = "[{0}]\tUsername: {1}\n\tPassword: {2}\n"
     print(user.format(n, email, password))
-    n += 1
 
 def main(count):
     """ The main Function """
@@ -45,6 +44,7 @@ def main(count):
         try:
             sign_up(n)
             count -= 1
+            n += 1
         except:
             break
 

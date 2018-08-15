@@ -43,8 +43,8 @@ def main(count):
     n = 1
     while count > 0:
         try:
-        sign_up()
-        count -= 1
+            sign_up()
+            count -= 1
         except:
             break
             sys.exit(0)

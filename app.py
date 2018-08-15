@@ -36,17 +36,19 @@ def sign_up(n):
     auth.create_user_with_email_and_password(email, password)
     user = "[{0}]\tUsername: {1}\n\tPassword: {2}\n"
     print(user.format(n, email, password))
+    return email + "\n" + password
 
 def main(count):
     """ The main Function """
     n = 1
-    while count > 0:
-        try:
-            sign_up(n)
-            count -= 1
-            n += 1
-        except:
-            break
+    with open('credentials.txt', "r+") as f:
+        while count > 0:
+            try:
+                f.append(sign_up(n))
+                count -= 1
+                n += 1
+            except:
+                break
 
 if __name__ == "__main__":
     count = int(input("Enter Targeted Number: "))

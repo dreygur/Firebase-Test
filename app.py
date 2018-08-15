@@ -36,7 +36,7 @@ def sign_up(n):
     auth.create_user_with_email_and_password(email, password)
     user = "[{0}]\tUsername: {1}\n\tPassword: {2}\n"
     print(user.format(n, email, password))
-    return email + "\n" + password
+    return user.format(n, email, password)
 
 def main(count):
     """ The main Function """

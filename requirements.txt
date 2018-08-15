@@ -1,9 +1,6 @@
 sseclient
-threading
-socket
 oauth2client
 gcloud
 requests_toolbelt
 python_jwt
 Crypto
-datetime

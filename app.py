@@ -29,25 +29,25 @@ def rnd_gen(i):
     text = "".join(random.sample(s, i))
     return text
 
-def sign_up():
+def sign_up(n):
     """ Generating Random Users """
-    n = 1
     email = rnd_gen(6)
     password = rnd_gen(8)
     auth.create_user_with_email_and_password(email + "@playlagom.com", password)
     user = "[{0}]\tUsername: {1}\n\tPassword: {2}\n"
     print(user.format(n, email, password))
+    n += 1
 
 def main(count):
     """ The main Function """
+    n = 1
     while count > 0:
-        #try:
-        print("Working")
+        try:
         sign_up()
         count -= 1
-        """except:
+        except:
             break
-            sys.exit(0)"""
+            sys.exit(0)
 
 if __name__ == "__main__":
     count = int(input("Enter Targeted Number: "))

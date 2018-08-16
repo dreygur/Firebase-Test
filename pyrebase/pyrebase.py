@@ -118,7 +118,7 @@ class Auth:
         # handle weirdly formatted response
         user = {
             "userId": request_object_json["user_id"],
-            "idToken": request_object_json["id_token"],
+            "idToken": request_object_json["w"],
             "refreshToken": request_object_json["refresh_token"]
         }
         return user

@@ -6,7 +6,6 @@ Author: Rakibul Yeasin Totul (fb.com/rytotul)
 For Fun Purpose don't take seriously...
 """
 
-
 # Preventing from writing Bytecodes
 import sys
 sys.dont_write_bytecode = True
@@ -17,14 +16,20 @@ import random
 import string
 
 # Firebase Configurations
-config = {
-    "apiKey"        :   "AIzaSyCRJyJU8cXuApBmX9kFmrLCYnzJF3ztK64",
-    "authDomain"    :   "transport-tracker-56d6b.firebaseapp.com",
-    "databaseURL"   :   "https://transport-tracker-56d6b.firebaseio.com",
-    "storageBucket" :   "transport-tracker-56d6b.appspot.com"
-}
 apiKey      = "AIzaSyCRJyJU8cXuApBmX9kFmrLCYnzJF3ztK64" # Your API key
 projectID   = "transport-tracker-56d6b"                 # Your Project ID
+
+# Don't Edit Here...
+authDomain      = "{0}.firebaseapp.com".format(projectID)
+databaseURL     = "https://{0}.firebaseio.com".format(projectID)
+storageBucket   = "{0}.appspot.com".format(projectID)
+
+config = {
+    "apiKey"        :   apiKey,
+    "authDomain"    :   authDomain,
+    "databaseURL"   :   databaseURL,
+    "storageBucket" :   storageBucket
+}
 
 # You know what it does :D
 firebase = pyrebase.initialize_app(config)

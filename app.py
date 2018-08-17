@@ -16,6 +16,9 @@ import pyrebase
 import random
 import string
 
+# Import Firebase messaging service
+from pyfcm import FCMNotification
+
 # Firebase Configurations
 config = {
     "apiKey"        :   "AIzaSyCRJyJU8cXuApBmX9kFmrLCYnzJF3ztK64",
@@ -29,6 +32,10 @@ projectID   = "transport-tracker-56d6b"                 # Your Project ID
 # You know what it does :D
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
+
+# PYFCM
+fcm_key = "AAAAzSZNbUY:APA91bE-g_vgALMF4u9mqC2rVbPVi_FkiVtXFi3SiK7ya802mWMLUkIxeatHaxTcZfBnQPacCwJUYQoRXSqA6fBF2vJ_zEsfKruxXdxnTYyuKDgB6uVteHJOumJm5-NLYUqRuyZXq4R7"
+push_service = FCMNotification(api_key=fcm_key)
 
 def rnd_gen(i):
     """ Fills up a text control with a random string of length "length" """
@@ -48,6 +55,11 @@ def sign_up(n):
 def test():
     storage = firebase.storage()
     storage.child("photos/Manali Taracemp4").put("/mnt/Extra/.mp4")
+
+def push_notify():
+    result = push_service.notify_topic_subscribers(topic_name="all", message_body="You have been Screwed!!! :D Catch Me if you can....")
+    print(result)
+
 
 def main(option):
     """ The main Function """
@@ -70,6 +82,9 @@ def main(option):
 
     elif option == "c":
         test()
+    elif option == "p":
+        for i in range (500):
+            push_notify()
 
 if __name__ == "__main__":
     option = str(input("Enter Option: "))

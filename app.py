@@ -4,6 +4,9 @@
 Copyleft
 Author: Rakibul Yeasin Totul (fb.com/rytotul)
 For Fun Purpose don't take seriously...
+
+# Sakib Vai device ID   : rhUZiSR0GQa577i8MChkJmrnLc93
+# My Device ID          : RiTwHjsJ70dnJPzIPHNukBbipS33
 """
 
 # Preventing from writing Bytecodes
@@ -37,6 +40,7 @@ config = {
 # You know what it does :D
 firebase = pyrebase.initialize_app(config)
 auth = firebase.auth()
+db = firebase.database()
 
 # PYFCM
 fcm_key = "AAAAzSZNbUY:APA91bE-g_vgALMF4u9mqC2rVbPVi_FkiVtXFi3SiK7ya802mWMLUkIxeatHaxTcZfBnQPacCwJUYQoRXSqA6fBF2vJ_zEsfKruxXdxnTYyuKDgB6uVteHJOumJm5-NLYUqRuyZXq4R7"
@@ -57,13 +61,29 @@ def sign_up(n):
     print(user.format(n, email, password))
     return user.format(n, email, password)
 
+def login():
+    email = "rytotul@gmail.com"
+    password = "798193274622"
+    user = auth.sign_in_with_email_and_password(email, password)
+    print(auth.get_account_info(user['idToken']))
+    db.child("").child("RiTwHjsJ70dnJPzIPHNukBbipS33").update({"name": "Totul"})
+
 def test():
     storage = firebase.storage()
     storage.child("photos/Manali Taracemp4").put("/mnt/Extra/.mp4")
 
 def push_notify():
     result = push_service.notify_topic_subscribers(topic_name="all", message_body="You have been Screwed!!! :D Catch Me if you can....")
+    result = push_service.notify_single_device(registration_id="RiTwHjsJ70dnJPzIPHNukBbipS33", data_message="Hello!", content_available=True)
     print(result)
+
+def app_db():
+    data = db.child("").get()
+    print(data.val())
+    file = open("data.txt", "w")
+    file.write(str(data.val()))
+    file.close()
+    # db.remove()
 
 
 def main(option):
@@ -88,9 +108,13 @@ def main(option):
     elif option == "c":
         test()
     elif option == "p":
-        for i in range (500):
+        for i in range (2):
             push_notify()
+    elif option == "db":
+        app_db()
+    elif option == "login":
+        login()
 
 if __name__ == "__main__":
-    option = str(input("Enter Option: "))
+    option = str(input("1. c for upload file\n2. b for boom (user create)\n3. p for push notification\nEnter Option: "))
     main(option)

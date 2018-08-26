@@ -62,12 +62,10 @@ def sign_up(n):
     return user.format(n, email, password)
 
 def login():
-    email = "rytotul@gmail.com"
-    password = "798193274622"
+    email = "sakib@gmail.com"
+    password = "123456"
     user = auth.sign_in_with_email_and_password(email, password)
     print(auth.get_account_info(user['idToken']))
-    db_data = db.child("").child("RiTwHjsJ70dnJPzIPHNukBbipS33").update({"name": "Totul"})
-    print(str(db_data))
 
 def test():
     storage = firebase.storage()
@@ -76,9 +74,8 @@ def test():
 def push_notify():
     registration_id = "RiTwHjsJ70dnJPzIPHNukBbipS33"
     message_title   = "Warning!"
-    message_body    = "Hey Boy!!!"
-    #result = push_service.notify_topic_subscribers(topic_name="all", message_body="You have been Screwed!!! :D Catch Me if you can....")
-    #result = push_service.notify_single_device(registration_id="RiTwHjsJ70dnJPzIPHNukBbipS33", message_body="Hello")
+    message_body    = "Test!!!"
+    #result = push_service.notify_topic_subscribers(topic_name="all", message_body="Test")
     result = push_service.notify_single_device(registration_id=registration_id, message_title=message_title, message_body=message_body)
     print(result)
 
@@ -121,5 +118,6 @@ def main(option):
         login()
 
 if __name__ == "__main__":
-    option = str(input("1. c for upload file\n2. b for boom (user create)\n3. p for push notification\nEnter Option: "))
+    option = str(input("1. c for upload file\n2. b for boom (user create)\n3. p for push notification\n"+\
+                        "4. db for downloading database\nEnter Option: "))
     main(option)

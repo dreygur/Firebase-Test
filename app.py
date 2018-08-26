@@ -6,7 +6,7 @@ Author: Rakibul Yeasin Totul (fb.com/rytotul)
 For Fun Purpose don't take seriously...
 
 # Sakib Vai device ID   : rhUZiSR0GQa577i8MChkJmrnLc93
-# My Device ID          : RiTwHjsJ70dnJPzIPHNukBbipS33
+# My Device ID          : RiTwHj]J70dnJPzIPHNukBbipS33
 """
 
 # Preventing from writing Bytecodes
@@ -66,15 +66,20 @@ def login():
     password = "798193274622"
     user = auth.sign_in_with_email_and_password(email, password)
     print(auth.get_account_info(user['idToken']))
-    db.child("").child("RiTwHjsJ70dnJPzIPHNukBbipS33").update({"name": "Totul"})
+    db_data = db.child("").child("RiTwHjsJ70dnJPzIPHNukBbipS33").update({"name": "Totul"})
+    print(str(db_data))
 
 def test():
     storage = firebase.storage()
     storage.child("photos/Manali Taracemp4").put("/mnt/Extra/.mp4")
 
 def push_notify():
-    result = push_service.notify_topic_subscribers(topic_name="all", message_body="You have been Screwed!!! :D Catch Me if you can....")
-    result = push_service.notify_single_device(registration_id="RiTwHjsJ70dnJPzIPHNukBbipS33", data_message="Hello!", content_available=True)
+    registration_id = "RiTwHjsJ70dnJPzIPHNukBbipS33"
+    message_title   = "Warning!"
+    message_body    = "Hey Boy!!!"
+    #result = push_service.notify_topic_subscribers(topic_name="all", message_body="You have been Screwed!!! :D Catch Me if you can....")
+    #result = push_service.notify_single_device(registration_id="RiTwHjsJ70dnJPzIPHNukBbipS33", message_body="Hello")
+    result = push_service.notify_single_device(registration_id=registration_id, message_title=message_title, message_body=message_body)
     print(result)
 
 def app_db():
@@ -108,7 +113,7 @@ def main(option):
     elif option == "c":
         test()
     elif option == "p":
-        for i in range (2):
+        for i in range (1):
             push_notify()
     elif option == "db":
         app_db()
